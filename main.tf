@@ -17,6 +17,6 @@ resource "aws_iam_user_login_profile" "this" {
 resource "aws_iam_user_policy_attachment" "policy_attach" {
 	count         = "${length(var.iam_policies) * length(var.user_names)}"
 	user          = "${var.user_names[count.index % length(var.iam_policies)]}"
-	policy_arn    = "${var.iam_policies[count.index / length(var.iam_users)]}"
+	policy_arn    = "${var.iam_policies[count.index / length(var.user_names)]}"
 	depends_on    = ["aws_iam_user.this"]
 }
