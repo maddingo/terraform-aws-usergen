@@ -10,4 +10,5 @@ variable "iam_policies" {
 
 variable "pgp_key" {
     description = "pgp for encrption of the user profile password generated"
-} 
+    default = ""
+}
